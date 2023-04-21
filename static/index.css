@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
+
+
+.main {
+    display: block;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-color: transparent;
+
+
+}
+
+.atm {
+    height: 573px;
+    width: 1000px;
+    background-image: url("interface.png");
+    background-size: 1000px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+.atm .content {
+    height: 389px;
+    width: 521px;
+    background-color: rgb(241, 241, 241);
+    margin: auto;
+    position:relative;
+    top: 90px;
+    bottom: 0;
+    left: 0;
+    color: #555555;
+    box-shadow: 0px 5px 20px 15px rgba(255, 255, 255, 0.5);
+}
+
+ .atm_menu {
+    display: none;
+    text-transform: uppercase;  
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.atm_option {
+    background-color: #555555;
+    color: rgb(241, 241, 241);
+    display:inline-block;
+    width: 150px;  
+}
+
+.arrow_left {
+    border-style: dashed;
+    border-color: transparent;
+    border-width: 0.20em;
+    display: -moz-inline-box;
+    display: inline-block;
+    /* Use font-size to control the size of the arrow. */
+    font-size: 100px;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 0;
+    background-color:rgb(241, 241, 241); /* change background color acc to bg color */ 
+    border-left-width: 0.2em;
+    border-left-style: solid;
+    border-left-color: #555555;
+    left:1.8rem;
+}
+
+.arrow_right {
+    border-style: dashed;
+    border-color: transparent;
+    border-width: 0.20em;
+    display: -moz-inline-box;
+    display: inline-block;
+    /* Use font-size to control the size of the arrow. */
+    font-size: 100px;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 0;
+    background-color: rgb(241, 241, 241); /* change background color acc to bg color */ 
+    border-right-width: 0.2em;
+    border-right-style: solid;
+    border-right-color: #555555;
+    right:1.8rem;
+    
+}
+
+.balance {
+    position: relative;
+    top: 65px;
+    left: 170px;
+}
+
+.deposit {
+    position: relative;
+    top: 85px;
+    left: 170px;
+}
+
+.withdraw {
+    position: relative;
+    top: 105px;
+    left: 170px;
+}
+
+.transfer {
+    position: relative;
+    top: 65px;
+    right: 171px;
+}
+
+.back_to_welcome_from_balance {
+    position: relative;
+    top: 163px;
+    right: 183px;
+}
+
+.back_to_welcome_from_deposit {
+    position: relative;
+    top: 132px;
+    right: 163px;
+}
+
+.depoitmoneyaction {
+    position: relative;
+    top: 33px;
+    left: 173px;
+}
+
+
+
+.balance_button {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    background-color: transparent;
+    top: 257px;
+    left: 783px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.deposit_button {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    background-color: transparent;
+    top: 316px;
+    left: 783px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.withdraw_button {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    background-color: transparent;
+    top: 374px;
+    left: 783px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.transfer_button {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    top: 374px;
+    background-color: transparent;
+    left: 167px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.depositacction_button {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    background-color: transparent;
+    top: 316px;
+    left: 783px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+
+.welcome_atm_botton {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    top: 374px;
+    background-color: transparent;
+    left: 167px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.depositacction_button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+
+.transfer_button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+.withdraw_button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+.deposit_button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+.balance_button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+.welcome_atm_botton:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
