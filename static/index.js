@@ -15,9 +15,14 @@ function showMenu(menu) {
                 document.getElementById("depositacction_button").style.display = "block";
             }
 
+            if (menu == "withdraw_menu"){
+                document.getElementById("withdrawacction_button").style.display = "block";
+            }
+
             if (menu == "welcome_atm")
             {
                 document.getElementById("depositacction_button").style.display = "none";
+                document.getElementById("withdrawacction_button").style.display = "none";
 
                 for (j in list_of_bottons)
                 {

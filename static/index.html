@@ -23,6 +23,7 @@
             <div class="withdraw_button" id="withdraw_button" onclick="showMenu('withdraw_menu')"></div>
             <div class="transfer_button" id="transfer_button" onclick="showMenu('transfer_menu')"></div>
             <div class="depositacction_button" id="depositacction_button" style="display: none;"></div>
+            <div class="depositacction_button" id="withdrawacction_button" style="display: none;"></div>
             <div class="welcome_atm_botton" id="welcome_atm_botton" style="display: none;"
                 onclick="showMenu('welcome_atm')"></div>
         </div>
@@ -63,6 +64,21 @@
                 </div>
             </div>
             <div id="withdraw_menu" class="atm_menu">
+                <h6 style="margin-top: 10px;">Hello "username", insert the withdraw quantity:</h6>
+                <div class="input-group" style="padding: 2rem;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+    
+                    <input oninput="this.value=(parseInt(this.value)||0)" type="number" class="form-control" placeholder="0.00" />
+                </div>
+                <div class="back_to_welcome_from_deposit">
+                    <div class="atm_option"><span class="arrow_right"></span>Back MAIN</div>
+                </div>
+
+                <div class="depoitmoneyaction">
+                    <div class="atm_option">submit<span class="arrow_left"></span></div>
+                </div>
             </div>
             <div id="transfer_menu" class="atm_menu">
             </div>
@@ -84,8 +100,6 @@
                 <div class="transfer">
                     <div class="atm_option"><span class="arrow_right"></span>transfer</div>
                 </div>
-
-
 
             </div>
 
