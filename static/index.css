@@ -102,7 +102,7 @@ body {
 
 .balance {
     position: relative;
-    top: 65px;
+    top: 67px;
     left: 170px;
 }
 
@@ -114,13 +114,19 @@ body {
 
 .withdraw {
     position: relative;
-    top: 105px;
+    top: 102px;
     left: 170px;
 }
 
 .transfer {
     position: relative;
-    top: 65px;
+    top: 82px;
+    left: 171px;
+}
+
+.exit {
+    position: relative;
+    top: -50px;
     right: 171px;
 }
 
@@ -184,12 +190,24 @@ body {
     position: absolute;
     height: 32.5px;
     width: 50px;
-    top: 374px;
+    top: 433px;
+    background-color: transparent;
+    left: 783px;
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+}
+
+.exit_botton {
+    position: absolute;
+    height: 32.5px;
+    width: 50px;
+    top: 257px;
     background-color: transparent;
     left: 167px;
     border-radius: 5px;
     z-index: 100;
-    box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.2);
+    box-shadow: 0 5px 15px 10px rgba(255, 0, 0, 0.2);
 }
 
 .depositacction_button {
@@ -220,6 +238,12 @@ body {
 .depositacction_button:hover {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 5px 15px 10px rgba(0, 255, 115, 0.5);
+}
+
+
+.exit_botton:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px 10px rgba(255, 0, 0, 0.5);
 }
 
 

@@ -1,7 +1,7 @@
 function showMenu(menu) {
 
     var list_of_menus = ["balance_menu", "deposit_menu", "withdraw_menu", "transfer_menu", "welcome_atm"];
-    var list_of_bottons = ["balance_button", "deposit_button", "withdraw_button", "transfer_button", "welcome_atm_botton"];
+    var list_of_bottons = ["balance_button", "deposit_button", "withdraw_button", "transfer_button", "welcome_atm_botton", "exit_botton"];
     for (i in list_of_menus)
     {
         if (list_of_menus[i] != menu){
