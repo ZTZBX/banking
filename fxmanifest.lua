@@ -17,7 +17,8 @@ version '1.0.0'
 description 'ztzbx banking system'
 
 dependencies {
-    "core-ztzbx"
+    "core-ztzbx",
+    "fivem-mysql"
 }
 
 ui_pages {

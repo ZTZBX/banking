@@ -17,7 +17,6 @@ namespace banking.Client
 
         private void OnClientResourceStart(string resourceName)
         {
-
             Atm.atmOp = false;
             OpenNuiEvent();
             addBlips();
@@ -38,14 +37,13 @@ namespace banking.Client
                 BeginTextCommandSetBlipName(atmName);
                 AddTextComponentSubstringPlayerName("me");
                 EndTextCommandSetBlipName(current_blip);
-
             }
         }
 
         private async void OpenNuiEvent()
         {
             List<List<float>> currentCoords = new List<List<float>>();
-            
+
             float radeo = 3.0f;
 
             while (true)
@@ -99,7 +97,7 @@ namespace banking.Client
 
                     currentCoords.Add(tempCoords);
 
-                    
+
                 }
 
                 Vector3 currect_coords = GetEntityCoords(PlayerPedId(), false);
@@ -112,9 +110,19 @@ namespace banking.Client
                         {
                             if (!Atm.atmOp)
                             {
-                                AtmNuiIn(true);
-                                Atm.atmOp = true;
-                                await Delay(2);
+                                TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());
+                                
+                                if (Atm.playerHaveAccount)
+                                {
+                                    AtmNuiIn(true);
+                                    Atm.atmOp = true;
+                                }
+                                else 
+                                {
+                                    Exports["core-ztzbx"].sendOnUserChat("^2^*[City Bank]^r^0 First you need to create a bank account");
+                                }
+                                await Delay(3);
+
                             }
                         }
 
