@@ -40,8 +40,9 @@ namespace banking.Client
         private async void bankerInteraction()
         {
             List<List<float>> currentCoords = new List<List<float>>();
+            float radeo = 2.0f;
 
-            while(true)
+            while (true)
             {
                 await Delay(0);
                 foreach (string bankerName in Atm.bankerMetas.Keys)
@@ -90,6 +91,30 @@ namespace banking.Client
                     tempCoords.Add(Atm.bankerMetas[bankerName][1]);
                     tempCoords.Add(Atm.bankerMetas[bankerName][2]);
                     currentCoords.Add(tempCoords);
+                }
+
+                Vector3 currect_coords = GetEntityCoords(PlayerPedId(), false);
+                foreach (List<float> coords in currentCoords)
+                {
+                    if (MathUtils.CheckIfCoordsAreInRadeo(coords[0], coords[1], coords[2], currect_coords.X, currect_coords.Y, currect_coords.Z, radeo))
+                    {
+                        if (IsControlJustReleased(0, 38))
+                        {
+                            TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());
+
+                            if (!Atm.playerHaveAccount)
+                            {
+                                TriggerServerEvent("createBankAcccount", Exports["core-ztzbx"].playerToken());
+                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You have created a bank account !");
+                            }
+                            else 
+                            {
+                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You already have a bank account!");
+                            }
+                            await Delay(3);
+                        }
+                    }
+
                 }
             }
         }

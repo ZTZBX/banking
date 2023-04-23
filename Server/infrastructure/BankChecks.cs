@@ -26,5 +26,16 @@ namespace banking.Server
             return true;
         }
 
+        public void createBankAccount(string token)
+        {
+            /*
+            INSERT INTO economy (username)
+            SELECT username from players 
+            WHERE token = '<TOKEN>'
+            */
+            string query = $"insert into economy (username) select username from players WHERE token = '{token}'";
+            Exports["fivem-mysql"].raw(query);
+        }
+
     }
 }
