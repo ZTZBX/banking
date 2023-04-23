@@ -53,3 +53,33 @@ function showMenu(menu) {
         }
     }
 }
+
+
+$(function () {
+    window.addEventListener('message', function (event) {
+        var item = event.data;
+
+        if (item.showAtm == true) {
+
+            document.getElementsByClassName("main")[0].style.display = "block";
+
+        }
+        else {
+            document.getElementsByClassName("main")[0].style.display = "none";
+        }
+    });
+
+    $("#exit_botton").click(function () {
+
+        fetch(`https://banking/exit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+            })
+        }).then(resp => resp.json())
+    });
+
+
+});

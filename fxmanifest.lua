@@ -5,7 +5,8 @@ files {
     'Client/*.dll',
     'static/index.css',
     'static/index.js',
-    'static/index.html'
+    'static/index.html',
+    'static/interface.png'
 }
 
 client_script 'Client/*.net.dll'

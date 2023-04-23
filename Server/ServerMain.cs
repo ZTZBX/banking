@@ -8,13 +8,7 @@ namespace banking.Server
     {
         public ServerMain()
         {
-            Debug.WriteLine("Hi from banking.Server!");
         }
 
-        [Command("hello_server")]
-        public void HelloServer()
-        {
-            Debug.WriteLine("Sure, hello.");
-        }
     }
 }

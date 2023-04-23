@@ -9,15 +9,6 @@ namespace banking.Client
     {
         public ClientMain()
         {
-            Debug.WriteLine("Hi from banking.Client!");
-        }
-
-        [Tick]
-        public Task OnTick()
-        {
-            DrawRect(0.5f, 0.5f, 0.5f, 0.5f, 255, 255, 255, 150);
-
-            return Task.FromResult(0);
         }
     }
 }
