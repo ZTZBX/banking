@@ -119,9 +119,9 @@ namespace banking.Client
                                 }
                                 else 
                                 {
-                                    Exports["core-ztzbx"].sendOnUserChat("^2^*[City Bank]^r^0 First you need to create a bank account");
+                                    Exports["core-ztzbx"].sendOnUserChat("^2^*[City Bank]^r^0 First you need to create a bank account!");
                                 }
-                                await Delay(3);
+                                await Delay(100);
 
                             }
                         }

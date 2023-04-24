@@ -24,6 +24,17 @@ namespace banking.Client
             {"City Bank - Banker 3", new List<float>{243.0168f, 224.2468f, 105.2865f}},
         };
 
+
+        public static Dictionary<string, List<float>> bankerPeds = new Dictionary<string, List<float>>()
+        {
+            {"City Bank - Banker 1", new List<float>{254.7044f, 222.3103f, 104.7868f}},
+            {"City Bank - Banker 2", new List<float>{249.5318f, 224.1367f, 104.7868f}},
+            {"City Bank - Banker 3", new List<float>{244.5397f, 226.0168f, 104.7868f}},
+        };
+
+        static public bool pedsAreLoaded = false;
+
+
         static public bool playerHaveAccount = false;
 
         static public bool atmOp = false;

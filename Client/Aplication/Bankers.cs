@@ -15,8 +15,29 @@ namespace banking.Client
 
         private void OnClientResourceStart(string resourceName)
         {
+            checkIfLogin();
             addBlips();
             bankerInteraction();
+            bankerPeds();
+        }
+
+        private async void checkIfLogin()
+        {
+            while (true)
+            {
+                await Delay(0);
+                if (Exports["core-ztzbx"].playerToken() != null)
+                {
+                    if (!Atm.playerHaveAccount)
+                    {
+                        TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());        
+                    }
+                    break;
+
+                }
+
+            }
+
         }
 
         private async void addBlips()
@@ -36,6 +57,103 @@ namespace banking.Client
                 EndTextCommandSetBlipName(current_blip);
             }
         }
+
+
+        private async void bankerPeds()
+        {
+            if (!Atm.pedsAreLoaded)
+            {
+                uint banker = (uint)GetHashKey("cs_barry");
+                RequestModel(banker);
+                while (HasModelLoaded(banker) == false)
+                {
+                    RequestModel(banker);
+                    await Delay(100);
+                }
+
+                uint chairM = (uint)GetHashKey("v_ret_gc_chair03");
+                RequestModel(chairM);
+
+                while (HasModelLoaded(chairM) == false)
+                {
+                    RequestModel(chairM);
+                    await Delay(100);
+                }
+
+                RequestAnimDict("amb@prop_human_seat_chair_mp@male@generic@base");
+
+                while (HasAnimDictLoaded("amb@prop_human_seat_chair_mp@male@generic@base") == false)
+                {
+                    RequestAnimDict("amb@prop_human_seat_chair_mp@male@generic@base");
+                    await Delay(100);
+                }
+
+                /*
+                The ped is created in local memory of the player not in network for performace !
+                */
+
+                foreach (string playerPed in Atm.bankerPeds.Keys)
+                {
+                    await Delay(100);
+
+                    int id_ob = CreateObject(
+                        (int)chairM,
+                        Atm.bankerPeds[playerPed][0],
+                        Atm.bankerPeds[playerPed][1],
+                        Atm.bankerPeds[playerPed][2] + 0.5f,
+                        false,
+                        false,
+                        false
+                    );
+
+                    FreezeEntityPosition(id_ob, true);
+
+
+                    int id = CreatePed(
+                        4,
+                        banker,
+                        Atm.bankerPeds[playerPed][0],
+                        Atm.bankerPeds[playerPed][1],
+                        Atm.bankerPeds[playerPed][2],
+                        150.0f,
+                        false,
+                        true
+                      );
+                    if (id != 0)
+                    {
+                        TaskPlayAnim(
+                            // ped
+                            id,
+                            // TaskPlayAnim
+                            "amb@prop_human_seat_chair_mp@male@generic@base",
+                            // animationName
+                            "base",
+                            // blendInSpeed
+                            8.0f,
+                            // blendInSpeed
+                            8.0f,
+                            // duration
+                            -1,
+                            // flag
+                            1,
+                            // playbackRate
+                            0.0f,
+                            true,
+                            true,
+                            true
+                            );
+                        FreezeEntityPosition(id, true);
+                        SetEntityInvincible(id, true);
+                        SetBlockingOfNonTemporaryEvents(id, true);
+
+                    }
+                }
+
+            }
+
+            Atm.pedsAreLoaded = true;
+        }
+
 
         private async void bankerInteraction()
         {
@@ -90,7 +208,11 @@ namespace banking.Client
                     tempCoords.Add(Atm.bankerMetas[bankerName][0]);
                     tempCoords.Add(Atm.bankerMetas[bankerName][1]);
                     tempCoords.Add(Atm.bankerMetas[bankerName][2]);
-                    currentCoords.Add(tempCoords);
+                    if (!currentCoords.Contains(tempCoords))
+                    {
+                        currentCoords.Add(tempCoords);
+                    }
+                    
                 }
 
                 Vector3 currect_coords = GetEntityCoords(PlayerPedId(), false);
@@ -100,18 +222,17 @@ namespace banking.Client
                     {
                         if (IsControlJustReleased(0, 38))
                         {
-                            TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());
-
                             if (!Atm.playerHaveAccount)
                             {
                                 TriggerServerEvent("createBankAcccount", Exports["core-ztzbx"].playerToken());
-                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You have created a bank account !");
+                                TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());
+                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You have created a bank account!");
                             }
-                            else 
+                            else
                             {
                                 Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You already have a bank account!");
                             }
-                            await Delay(3);
+                            await Delay(100);
                         }
                     }
 
