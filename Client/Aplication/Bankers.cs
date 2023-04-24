@@ -32,6 +32,8 @@ namespace banking.Client
                     {
                         TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());        
                     }
+
+                    TriggerServerEvent("updateMoneyInLocalBank", Exports["core-ztzbx"].playerToken());
                     break;
 
                 }

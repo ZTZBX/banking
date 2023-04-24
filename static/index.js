@@ -55,11 +55,30 @@ function showMenu(menu) {
 }
 
 
+function changeMoney(data) {
+    
+    data = JSON.parse(data["data"])
+    console.log(data);
+
+    document.getElementById("moneyAccount").innerText = data.money
+    document.getElementById("vpAccount").innerText = data.vp
+    document.getElementById("currencyAccount").innerText = data.currency
+}
+
 $(function () {
     window.addEventListener('message', function (event) {
         var item = event.data;
 
         if (item.showAtm == true) {
+
+            fetch(`https://banking/getMoney`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                })
+            }).then(resp => resp.json()).then(success => changeMoney(success));
 
             document.getElementsByClassName("main")[0].style.display = "block";
 
