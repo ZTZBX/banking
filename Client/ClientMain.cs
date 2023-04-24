@@ -12,7 +12,6 @@ namespace banking.Client
             EventHandlers["changePlayerHaveAccount"] += new Action<bool>(getIfPlayerHaveAccount);
         }
 
-
         private void getIfPlayerHaveAccount(bool have)
         {
             Atm.playerHaveAccount = have;
