@@ -25,7 +25,7 @@ namespace banking.Client
         {
             while (true)
             {
-                await Delay(0);
+                await Delay(500);
                 if (Exports["core-ztzbx"].playerToken() != null)
                 {
                     if (!Atm.playerHaveAccount)
