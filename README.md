@@ -2,6 +2,7 @@
 
 ### **Requirements**
 - [core-ztzbx](https://github.com/ZTZBX/core-ztzbx)
+- [notification](https://github.com/ZTZBX/notification)
 - [fivem-mysql](https://github.com/ZTZBX/fivem-mysql)
 
 **To preview the ui just press on this link: https://ztzbx.github.io/banking/static/index.html**
