@@ -87,12 +87,15 @@ $(function () {
     });
 
     $("#exit_botton").click(function () {
-        fetch(`https://banking/exit`, {
+  
+            fetch(`https://banking/exit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
-        }).catch();
+        }).then()
+        .catch(err => {   
+        });
     });
 
 });
