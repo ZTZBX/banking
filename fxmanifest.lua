@@ -18,7 +18,8 @@ description 'ztzbx banking system'
 
 dependencies {
     "core-ztzbx",
-    "fivem-mysql"
+    "fivem-mysql",
+    "notification"
 }
 
 ui_pages {

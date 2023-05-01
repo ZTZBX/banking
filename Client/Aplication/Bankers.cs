@@ -228,11 +228,11 @@ namespace banking.Client
                             {
                                 TriggerServerEvent("createBankAcccount", Exports["core-ztzbx"].playerToken());
                                 TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());
-                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You have created a bank account!");
+                                Exports["notification"].send("Congratulations " + Exports["core-ztzbx"].playerUsername(), "Banker - Central Bank", "You have created a bank account!");
                             }
                             else
                             {
-                                Exports["core-ztzbx"].sendOnUserChat("^2^*[Banker]^r^0 You already have a bank account!");
+                                Exports["notification"].send("Dear " + Exports["core-ztzbx"].playerUsername(), "Banker - Central Bank", "If you already have an account, you can't create another one.");
                             }
                             await Delay(100);
                         }
