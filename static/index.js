@@ -58,8 +58,6 @@ function showMenu(menu) {
 function changeMoney(data) {
     
     data = JSON.parse(data["data"])
-    console.log(data);
-
     document.getElementById("moneyAccount").innerText = data.money
     document.getElementById("vpAccount").innerText = data.vp
     document.getElementById("currencyAccount").innerText = data.currency
@@ -89,16 +87,12 @@ $(function () {
     });
 
     $("#exit_botton").click(function () {
-
         fetch(`https://banking/exit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
-            body: JSON.stringify({
-            })
-        }).then(resp => resp.json())
+        }).catch();
     });
-
 
 });
