@@ -15,31 +15,9 @@ namespace banking.Client
 
         private void OnClientResourceStart(string resourceName)
         {
-            checkIfLogin();
             addBlips();
             bankerInteraction();
             bankerPeds();
-        }
-
-        private async void checkIfLogin()
-        {
-            while (true)
-            {
-                await Delay(500);
-                if (Exports["core-ztzbx"].playerToken() != null)
-                {
-                    if (!Atm.playerHaveAccount)
-                    {
-                        TriggerServerEvent("getIfPlayerHaveAccount", Exports["core-ztzbx"].playerToken());        
-                    }
-
-                    TriggerServerEvent("updateMoneyInLocalBank", Exports["core-ztzbx"].playerToken());
-                    break;
-
-                }
-
-            }
-
         }
 
         private async void addBlips()
